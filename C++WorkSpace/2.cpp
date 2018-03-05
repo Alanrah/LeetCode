@@ -4,6 +4,7 @@
 #include<algorithm>
 #include<iostream>
  using namespace std;
+
  struct ListNode {
       int val;
       ListNode *next;
@@ -41,6 +42,27 @@ public:
         return tail->next;
     }
 
+};
+
+class Solution2 {
+public:
+	ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+		ListNode *pre_head = new ListNode(0);
+		ListNode *pre_head_back = pre_head;
+		int add = 0;
+		int l1_value, l2_value;
+		while (add || l2 || l1) {
+			l1 ? (l1_value = l1->val, l1 = l1->next) : (l1_value = 0,l1);
+			l2 ? (l2_value = l2->val, l2 = l2->next) : (l2_value = 0, l2);
+			pre_head->next = new ListNode(0);
+			pre_head = pre_head->next;
+			if (add)
+				l2_value += 1;
+			add = (l2_value + l1_value) / 10;
+			pre_head->val = (l2_value + l1_value) % 10;
+		}
+		return pre_head_back->next;
+	}
 };
 
 int main()
