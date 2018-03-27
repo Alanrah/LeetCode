@@ -5,8 +5,17 @@
     <style type="text/css">
         div { background: #0094ff; width: 250px; height: 100px; }
         .relative { background: #ff6a00; position: relative; width: 200px; height: 100px; top: 20px; left: 50px; }
+
+        a{color: yellow;} /*特殊性值：0,0,0,1*/
+		div a{color: green;} /*特殊性值：0,0,0,2*/
+		.demo a{color: black;} /*特殊性值：0,0,1,1*/
+		.demo input[type="text"]{color: blue;} /*特殊性值：0,0,2,1*/
+		.demo *[type="text"]{color: grey;} /*特殊性值：0,0,2,0*/
+		#demo a{color: orange;} /*特殊性值：0,1,0,1*/
+		div#demo a{color: red;} /*特殊性值：0,1,0,2*/
     </style>
 </head>
+
 <body>
     <div class="relative">
         </div>
@@ -53,6 +62,21 @@
     }    
         var sortedArr = new Array(1,4,7,9,11,12,21,26,33);   
         console.log(indexOfSorted(sortedArr,33));//8
+
+
+
+        //判断两个字符串是否互相包含的算法
+        var str ="dawn";
+		console.log(str.search("da")) //1,包含 
+		console.log(str.search("dawnfly")) //-1，不包含
+
+		var str ="dawn";
+		console.log(str.indexOf("da")) //1,包含,indexOf() 方法对大小写敏感！
+		console.log(str.indexOf("dawnfly")) //-1，不包含
+
+		var str ="dawnfly.cn";
+		var ret1 = new RegExp('dawn').test(str);//true
+		var ret2 = new RegExp('dawnflyingnow').test(str);//false
 
     </script>
 
