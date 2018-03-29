@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<!--<ul id="test">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		不定数个li标签
+	</ul>-->
+	<script type="text/javascript">
+		function indexOfLi(){
+			var ul = document.getElementById("test");
+			nodes = ul.children;
+			//console.log(nodes);
+			for(var i =0;i<nodes.length;i++){
+				var index = 0;
+				nodes[i].addEventListener("click", function(){
+					//console.log(this);
+					if(this.nodeName.toUpperCase() == "LI"){
+						console.log(index);
+						index++;
+					}
+				})
+			}
+		}
+		//indexOfLi();
+		function indexOfLii(){
+			var ul = document.getElementById("test");
+			nodes = ul.children;
+			//console.log(nodes);
+			for(var i =0;i<nodes.length;i++){
+				nodes[i].addEventListener("click", function(i){
+					return function(){
+						console.log(i);
+					}
+				}(i))
+			}
+		}
+		//indexOfLii();
+
+		//
+		function test(){
+			var x = 8;
+			console.log(x++);
+			setTimeout(function(){
+			console.log(x)
+			}, 0);//第一句
+			console.log("77777")//第二句
+		};
+
+		function person(){};
+		var mike = new person();
+
+
+		//console.log(mike.prototype);
+		//console.log(mike.__proto__);
+		//console.log(mike.__proto__.__proto__);
+		//console.log(mike.__proto__.__proto__.__proto__);
+		//"use strict";  
+		//console.log(this);
+		function foo(x){
+			x=x||1;
+			console.log(x);
+		}
+		//foo(2);
+
+		var b=1
+		function a(){
+			//b++;
+			console.log(b)//undefined
+			var b=3;
+			b++;
+			console.log(b);//4
+		}
+		a();
+		//
+		var a = [];
+	for (var i = 0; i < 10; i++) {
+	  a[i] = function (i) {
+	    console.log(i);
+	  }(i);
+	}
+	//console.log(a[6](6)()); // 10
+
+	console.log(null||1)//1
+	console.log(undefined||1)//1
+	console.log("str"||1)//str
+
+	var n=5;
+	function f1() {
+		  
+		  console.log(n); 
+}
+f1()
+
+
+	</script>
+
+</body>
+</html>
