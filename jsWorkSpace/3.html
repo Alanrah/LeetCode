@@ -98,8 +98,70 @@
 //f1()
 var a = "s";
      a.x = 1;
-     console.log(a.x);
-     console.log(a)
+     //console.log(a.x);
+     //console.log(a)
+     //
+     //
+     function foo(){}
+     foo.output=function(){console.log(2)}
+     foo.prototype.output=function(){console.log(3)}
+     foo.output();//2
+     foo.prototype.output();//3
+
+//深拷贝方法
+function deepClone(o) {
+    var obj = {};
+    for (var i in o) {
+        if (typeof o[i] === 'object') {
+            obj[i] = (o[i].constructor === Array) ? [] : {};
+            arguments.callee(o[i], obj[i]);
+        } else {
+            obj[i] = o[i];
+        }
+    }
+    return obj;
+}
+
+//异步加载js  
+function getScript(url,callback){  
+    var script = document.createElement("script");  
+    script.type="text/javascript";  
+    if(script.readyState){  
+        script.onreadystatechange = function(){  
+            if(script.readyState=="loaded"||script.readyState=="complete"){  
+                script.onreadystatechange=null;  
+                callback();  
+            }  
+        }  
+    }else{  
+        script.onload = function(){  
+        callback();  
+    }  
+    }  
+    script.src = url;  
+    document.getElementsByTagName("head")[0].appendChild(script);  
+}  
+
+	var output=function(){console.log(2)}//后定义
+    function output(){console.log(3)}//变量提升，先定义·
+    //console.log(output.prototype)
+	//output();//2
+
+
+	var arr=[199,299,399,498,599,699,898,999,1098,1198,1499,1598,1699,1899,1998,2099,2498,2999,3099,3199,3898];
+	//  arr1=[6368, 9568, 12768, 15936, 19168, 22368, 28736, 31968, 35136, 38336, 47968, 51136, 54368, 60768, 63936, 67168, 79936, 95968, 99168, 102368, 124736]
+	var arr1 = Array.from(arr,(x) => x *32);
+	var arr2=[]
+	var arr3=[]
+	for(i=1;i<32;i++)
+		{
+			arr2.push(3898*i)
+			arr3.push(111124-3898*i)
+		}
+		console.log(arr2)
+		console.log()
+	console.log(arr1);
+       
 
 
 	</script>
