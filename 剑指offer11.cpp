@@ -6,6 +6,8 @@
 #include<cstring>
 //#include<stdexcept>
 #include<exception>
+#include<stdlib.h>
+#include<stdio.h>
 using namespace std;
 
 class Solution {
@@ -54,7 +56,7 @@ public:
     }
 */
 int main()
-{
+{/*
     Solution so;
     int n;
     int num;
@@ -65,7 +67,13 @@ int main()
         num = so.NumberOf1(n);
         cout << "改数二进制表示中1个数为： " << num << endl;
         cout << endl;
-    }
-
+    }*/
+char str[][20]={"hello","tencent"};
+char *p = str[0];
+int dim =sizeof(str)/sizeof(str[0]);
+int ** p1;
+int *p2[10];
+int (*p3)[10];
+printf("%d %d  %d %d %d %d %d",dim,sizeof(str),strlen(p),sizeof(p1),sizeof(p2),sizeof(p3),sizeof(int));
 
 }
